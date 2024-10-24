@@ -31,7 +31,6 @@ class CustomData:
         try:
             logging.info("Converting json recieved from api to dataframe")
             data_df = pd.DataFrame(self.raw_data,index=[0])
-            print(data_df)
             return data_df
         except Exception as e:
             logging.error(CustomException(e, sys))

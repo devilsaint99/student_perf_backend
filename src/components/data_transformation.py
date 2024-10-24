@@ -65,7 +65,6 @@ class DataTransformation:
             logging.info("Applying preprocessing on train and test data")
             input_feature_train_df = preprocessing_obj.fit_transform(input_feature_train_df)
             input_feature_test_df = preprocessing_obj.transform(input_feature_test_df)
-            print(input_feature_test_df[0])
             
             save_obj(
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,

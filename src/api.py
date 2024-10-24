@@ -25,12 +25,14 @@ model_input_schema = ModelInputSchema()
 class Prediction(Resource):
     def post(self):
         body = model_input_schema.load(request.json['message'])
-        print(body)
         custom_data = CustomData(body)
         features = custom_data.convert_to_df()
         predictor = PredictPipeline()
         maths_score_predict = predictor.predict_math_score(features)
-        return math.floor(maths_score_predict)
+        if maths_score_predict == None:
+            return None
+        else:
+            return math.floor(maths_score_predict)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080)
