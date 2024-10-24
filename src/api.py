@@ -29,10 +29,7 @@ class Prediction(Resource):
         features = custom_data.convert_to_df()
         predictor = PredictPipeline()
         maths_score_predict = predictor.predict_math_score(features)
-        if maths_score_predict == None:
-            return None
-        else:
-            return math.floor(maths_score_predict)
+        return math.floor(maths_score_predict)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)

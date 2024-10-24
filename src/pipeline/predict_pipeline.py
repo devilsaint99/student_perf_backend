@@ -3,12 +3,12 @@ import pandas as pd
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import load_obj
-
+import os
 class PredictPipeline:
     def predict_math_score(self, features):
         try:
-            model_path = 'artifacts\\model.pkl'
-            preprocessor_path = 'artifacts\\preprocessor.pkl'
+            model_path = os.path.join('artifacts','model.pkl')
+            preprocessor_path = os.path.join('artifacts','preprocessor.pkl')
             logging.info("Loading preprocessor pickle")
             preprocessor = load_obj(preprocessor_path)
             logging.info("Standardizing input values")

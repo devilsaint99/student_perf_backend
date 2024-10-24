@@ -29,7 +29,6 @@ def save_obj(file_path, ml_obj):
 def load_obj(obj_path):
     try:
         dir_path = os.path.dirname(obj_path)
-
         with open(obj_path, "rb") as file_obj:
             return dill.load(file_obj)
         return 
