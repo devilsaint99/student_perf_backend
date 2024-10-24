@@ -1,0 +1,11 @@
+pandas   
+numpy
+seaborn
+matplotlib
+scikit-learn
+flask
+flask-restx
+marshmallow
+dill
+flask-cors
+-e .
